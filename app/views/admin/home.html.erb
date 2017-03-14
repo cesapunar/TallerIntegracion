@@ -21,7 +21,7 @@
 				<%= link_to "Editar", edit_article_path(id:article.id) %>
 			</div>
 			<div class="col-lg-1">
-				<%= link_to "Eliminar", article_path(id:article.id), method: :delete %>
+				<%= link_to "Eliminar", article_path(id:article.id), {method: :delete, data: {confirm: "¿Desea eliminar esta noticia definitivamente?"}} %>
 			</div>
 		</div>
 	<% end %>
