@@ -1,0 +1,28 @@
+
+
+<button class="btn-new btn-success btn-lg "> <%= link_to "Crear Noticia", new_article_path %> </button>
+
+<div class=container>
+	<% @articles.each do |article| %>
+		<div class=row>	
+			<div class="col-lg-10">
+				<h1> <%= article.title %> </h1>	
+				<div>
+					<%= article.down %>
+				</div>
+				<div>
+					<%= article.body %>
+				</div>
+				<div>
+					<%= article.created_at %>
+				</div>
+			</div>
+			<div class="col-lg-1">
+				<%= link_to "Editar", edit_article_path(id:article.id) %>
+			</div>
+			<div class="col-lg-1">
+				<%= link_to "Eliminar", article_path(id:article.id), method: :delete %>
+			</div>
+		</div>
+	<% end %>
+</div>
