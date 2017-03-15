@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
+    	Comment.where(article_id: params[:id]).destroy_all
 		@article = Article.find(params[:id])
 		@article.destroy
 		redirect_to admin_path
