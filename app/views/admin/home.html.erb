@@ -1,28 +1,40 @@
 
-
-<button class="btn-new btn-success btn-lg "> <%= link_to "Crear Noticia", new_article_path %> </button>
-
-<div class=container>
-	<% @articles.each do |article| %>
-		<div class=row>	
-			<div class="col-lg-10">
-				<h1> <%= article.title %> </h1>	
-				<div>
-					<%= article.down %>
-				</div>
-				<div>
-					<%= article.body %>
-				</div>
-				<div>
-					<%= article.created_at %>
-				</div>
-			</div>
-			<div class="col-lg-1">
-				<%= link_to "Editar", edit_article_path(id:article.id) %>
-			</div>
-			<div class="col-lg-1">
-				<%= link_to "Eliminar", article_path(id:article.id), {method: :delete, data: {confirm: "¿Desea eliminar esta noticia definitivamente?"}} %>
-			</div>
+<div>
+	<section>
+		<div class="center">
+			<button class="btn-new btn-success btn-lg "> <%= link_to "Crear Noticia", new_article_path %> </button>
 		</div>
-	<% end %>
+	</section>
+
+	<section>
+		<div class=container>
+			<% @articles.each do |article| %>
+				<div class="row">	
+					<div class="col-lg-10 article">
+						<h1 class="title"> <%= article.title %> </h1>	
+						<div class="down">
+							<%= article.down %>
+						</div>
+						<div class="body">
+							<%= article.body %>
+						</div>
+						<div class="body">
+							<label> Fecha de creación: </label>
+							<%= article.created_at %>
+						</div>
+					</div>
+					<div class="col-lg-1 function">
+						<button class="btn-new btn-warning btn-lg "> 
+							<%= link_to "Editar", edit_article_path(id:article.id) %>
+						</button>
+					</div>
+					<div class="col-lg-1 function">
+						<button class="btn-new btn-danger btn-lg "> 
+							<%= link_to "Eliminar", article_path(id:article.id), {method: :delete, data: {confirm: "¿Desea eliminar esta noticia definitivamente?"}} %> 
+						 </button>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</section>
 </div>

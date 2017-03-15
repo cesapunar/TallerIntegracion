@@ -1,23 +1,25 @@
 <div class=container>
 	<% @articles.each do |article| %>
-		<div class=row>	
-			<div class="col-lg-10">
-				<h1> <%= article.title %> </h1>	
-				<div>
+		<div class="row solid">	
+			<div class="col-lg-10 article">
+				<h1 class="title"> <%= article.title %> </h1>	
+				<div class="down">
 					<%= article.down %>
 				</div>
-				<div>
+				<div class="body">
 					<%= article.body_truncated %>
 				</div>
-				<div>
+				<div class="body">
+					<label> Fecha de creación: </label>
 					<%= article.created_at %>
 				</div>
-				<div>
+				<div class="body">
+					<label> Cantidad de comentarios: </label>
 					<%= article.comments_count %>
 				</div>
 			</div>
-			<div class="col-lg-2">
-				<button class="btn-new btn-success btn-lg "> <%= link_to "Ver Noticia", article_path(id:article.id)  %> </button>
+			<div class="col-lg-2 function">
+				<button class="btn-new btn-success btn-lg"> <%= link_to "Ver Noticia", article_path(id:article.id)  %> </button>
 			</div>
 		</div>
 	<% end %>
